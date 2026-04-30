@@ -16,14 +16,17 @@ function DashBoard() {
       </h1>
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Subscription cards */}
+      
         <div className="grid gap-6">
           {subscriptions.map((sub, idx) => (
-            <SubscriptionCard key={idx} name={sub.name} renewalDate={sub.renewalDate} />
+            <SubscriptionCard
+              key={idx}
+              name={sub.name}
+              cost={sub.cost}             
+              renewalDate={sub.renewalDate}
+            />
           ))}
         </div>
-
-        {/* Chart */}
         <div className="bg-white/20 backdrop-blur-md shadow-xl rounded-xl p-6">
           <AnalyticsChart data={subscriptions} />
         </div>
@@ -33,5 +36,6 @@ function DashBoard() {
 }
 
 export default DashBoard;
+
 
 
