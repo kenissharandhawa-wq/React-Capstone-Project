@@ -11,11 +11,6 @@ export function SubscriptionProvider({ children }) {
 
   const [loading, setLoading] = useState(false);
 
-  // Function to add new subscription
-  const addSubscription = (newSub) => {
-    setSubscriptions((prev) => [...prev, newSub]);
-  };
-
   return (
     <SubscriptionContext.Provider value={{ subscriptions, loading, addSubscription }}>
       {children}

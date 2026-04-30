@@ -1,5 +1,4 @@
 function SubscriptionCard({ name, renewalDate }) {
-  // Assign gradient + fixed price based on subscription name
   let bgClass = "bg-white/10 backdrop-blur-md"; 
   let price = "";
 
