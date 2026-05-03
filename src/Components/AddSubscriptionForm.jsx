@@ -7,10 +7,7 @@ function AddSubscriptionForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // For now, just log values instead of adding
     console.log("Form submitted:", { name, cost, renewalDate });
-
-    // Reset form
     setName("");
     setCost("");
     setRenewalDate("");
