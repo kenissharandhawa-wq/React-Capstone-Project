@@ -1,4 +1,3 @@
-// Mock API integration
 export const fetchSubscriptions = async () => {
   return [
     { name: "Netflix", cost: 15, renewalDate: "2026-05-15" },
