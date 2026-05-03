@@ -1,18 +1,12 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
-
-function AnalyticsChart() {
-  const data = [
-    { name: "Netflix", cost: 199 },
-    { name: "Spotify", cost: 99 },
-    { name: "Disney+", cost: 399 }
-  ];
-
+function AnalyticsChart({ data }) {
   const COLORS = [
-    "rgba(255, 99, 132, 0.7)",   
-    "rgba(75, 192, 75, 0.7)",   
-    "rgba(54, 162, 235, 0.7)"    
+    "#6367FF", 
+    "#8494FF", 
+    "#C9BEFF", 
+    "#FFDBFD"
   ];
-
+  
   const renderLabel = ({ name, value }) => (
     <tspan style={{ fontWeight: "bold", fill: "#111" }}>
       {name}: ₹{value}
@@ -29,6 +23,7 @@ function AnalyticsChart() {
         cy="50%"
         outerRadius={110}
         label={renderLabel}
+        labelLine={false}
       >
         {data.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -36,7 +31,7 @@ function AnalyticsChart() {
       </Pie>
       <Tooltip
         formatter={(value, name) => [`₹${value}`, name]}
-        contentStyle={{ fontWeight: "bold" }}
+        contentStyle={{ fontWeight: "bold", borderRadius: "8px" }}
       />
     </PieChart>
   );

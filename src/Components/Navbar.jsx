@@ -2,27 +2,33 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="bg-gray-900 px-6 py-4 flex justify-center space-x-6">
-      <Link
-        to="/"
-        className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-pink-400/50"
-      >
-        Home
+    <nav className="sticky top-0 z-50 bg-white/60 dark:bg-black/40 backdrop-blur-md border-b border-white/50 dark:border-white/10 px-8 py-4 flex justify-between items-center shadow-sm transition-colors duration-500">
+      
+      <Link to="/" className="text-2xl font-extrabold text-[#6367FF] dark:text-[#a8b1ff] tracking-wide drop-shadow-sm transition-colors duration-500">
+        Subs<span className="text-[#8494FF] dark:text-gray-300">Sync</span>
       </Link>
 
-      <Link
-        to="/dashboard"
-        className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-pink-400/50"
-      >
-        Dashboard
-      </Link>
-
-      <Link
-        to="/settings"
-        className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-pink-400/50"
-      >
-        Settings
-      </Link>
+      <div className="flex space-x-8">
+        <Link
+          to="/"
+          className="text-gray-700 dark:text-gray-300 font-bold hover:text-[#6367FF] dark:hover:text-[#a8b1ff] transition-colors duration-500"
+        >
+          Home
+        </Link>
+        <Link
+          to="/dashboard"
+          className="text-gray-700 dark:text-gray-300 font-bold hover:text-[#6367FF] dark:hover:text-[#a8b1ff] transition-colors duration-500"
+        >
+          Dashboard
+        </Link>
+        <Link
+          to="/settings"
+          className="text-gray-700 dark:text-gray-300 font-bold hover:text-[#6367FF] dark:hover:text-[#a8b1ff] transition-colors duration-500"
+        >
+          Settings
+        </Link>
+      </div>
+      
     </nav>
   );
 }

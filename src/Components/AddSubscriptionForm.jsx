@@ -1,31 +1,43 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SubscriptionContext } from "../Context/SubscriptionContext";
 
 function AddSubscriptionForm() {
+  const { addSubscription } = useContext(SubscriptionContext);
+
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const [renewalDate, setRenewalDate] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", { name, cost, renewalDate });
+    e.preventDefault(); 
+    
+    const newSub = {
+      name: name,
+      cost: Number(cost), 
+      renewalDate: renewalDate
+    };
+
+    addSubscription(newSub);
+
     setName("");
     setCost("");
     setRenewalDate("");
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white/20 backdrop-blur-md rounded-xl p-6 shadow-md mt-6"
+    <form 
+      onSubmit={handleSubmit} 
+      className="bg-black/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 shadow-2xl mt-6"
     >
-      <h2 className="text-lg font-bold text-gray-900 mb-4">Add Subscription</h2>
+      <h2 className="text-lg font-bold text-white mb-4">Add Subscription</h2>
 
       <input
         type="text"
         placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full mb-3 p-2 rounded"
+        className="w-full mb-4 p-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+        required
       />
 
       <input
@@ -33,22 +45,23 @@ function AddSubscriptionForm() {
         placeholder="Cost (₹)"
         value={cost}
         onChange={(e) => setCost(e.target.value)}
-        className="w-full mb-3 p-2 rounded"
+        className="w-full mb-4 p-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+        required
       />
 
       <input
         type="date"
         value={renewalDate}
         onChange={(e) => setRenewalDate(e.target.value)}
-        className="w-full mb-3 p-2 rounded"
+        className="w-full mb-4 p-3 rounded-lg bg-black/40 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+        required
       />
 
-      <button
-        type="submit"
-        className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 hover:scale-105 hover:shadow-pink-400/50"
-      >
-        Add
-      </button>
+    <button
+  type="submit"
+  className="bg-[#6367FF] hover:bg-[#8494FF] text-white px-6 py-2 rounded-full shadow-lg transition-all font-bold tracking-wide mt-2"
+> Add
+       </button>
     </form>
   );
 }

@@ -8,17 +8,14 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="p-6">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<DashBoard />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
     </Router>
   );
 }
 
 export default App;
-
 
